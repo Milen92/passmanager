@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Login / Registrierung</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="center-box">
+
+    <h1>🔐 Login / Registrierung</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="user" placeholder="Benutzername" required>
+        <input type="password" name="pin" placeholder="PIN" required>
+
+        <button type="submit" name="action" value="login">Login</button>
+        <button type="submit" name="action" value="register">Registrieren</button>
+    </form>
+
+</div>
+
+</body>
+</html>

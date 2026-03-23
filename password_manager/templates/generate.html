@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Passwort generieren</title>
+    <style>
+        body {
+            background: #0a0f1f;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #00eaff;
+        }
+
+        .box {
+            background: rgba(10, 15, 31, 0.7);
+            padding: 25px;
+            width: 330px;
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid #00eaff;
+            box-shadow: 0 0 20px #00eaff;
+        }
+
+        input[type=range] {
+            width: 100%;
+        }
+
+        .options {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 10px;
+            background: transparent;
+            border: 2px solid #ff005d;
+            color: #ff005d;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff005d;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #ff005d;
+            color: white;
+            box-shadow: 0 0 20px #ff005d;
+        }
+
+        .pw {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            word-break: break-all;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        .copy-btn {
+            border-color: #00eaff;
+            color: #00eaff;
+            box-shadow: 0 0 10px #00eaff;
+        }
+
+        .copy-btn:hover {
+            background: #00eaff;
+            color: #0a0f1f;
+            box-shadow: 0 0 20px #00eaff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3>Passwort generieren</h3>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Länge: <b id="lenValue">12</b></label>
+        <input type="range" name="length" min="4" max="30" value="12" oninput="lenValue.innerText = this.value">
+
+        <div class="options">
+            <label><input type="checkbox" name="lower" checked> Kleinbuchstaben</label><br>
+            <label><input type="checkbox" name="upper" checked> Großbuchstaben</label><br>
+            <label><input type="checkbox" name="digits" checked> Zahlen</label><br>
+            <label><input type="checkbox" name="symbols" checked> Sonderzeichen</label>
+        </div>
+
+        <button type="submit">Passwort erzeugen</button>
+    </form>
+
+    {% if pw %}
+        <p id="pwText" class="pw">{{ pw }}</p>
+
+        <button class="copy-btn" onclick="copyPW()">Kopieren</button>
+
+        <p id="msg" style="display:none; color:#00eaff;">Passwort kopiert!</p>
+    {% endif %}
+
+    <form action="/dashboard/">
+        <button style="border-color:#00eaff; color:#00eaff; box-shadow:0 0 10px #00eaff;">Zurück</button>
+    </form>
+</div>
+
+<script>
+function copyPW() {
+    let pw = document.getElementById("pwText").innerText;
+    navigator.clipboard.writeText(pw).then(function() {
+        document.getElementById("msg").style.display = "block";
+    });
+}
+</script>
+
+</body>
+</html>

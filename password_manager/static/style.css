@@ -1,0 +1,88 @@
+/* Apple‑style син градиент */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    color: #ffffff;
+}
+
+.background-gradient {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #4da3ff 0%, #0050c8 40%, #001a3d 100%);
+}
+
+/* Glassmorphism контейнер */
+.center-box.glass-card {
+    background: rgba(10, 20, 40, 0.55);
+    border-radius: 24px;
+    padding: 40px 48px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(18px);
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+}
+
+/* Заглавия */
+.center-box h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.subtitle {
+    margin: 0 0 30px;
+    font-size: 15px;
+    color: #d0ddff;
+}
+
+/* Контейнер за бутоните */
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Основен бутон */
+.menu-btn {
+    display: block;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #4da3ff, #2b7bff);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0, 80, 200, 0.45);
+    transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+}
+
+/* Вторичен бутон (Logout) */
+.menu-btn.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    color: #e0e6ff;
+}
+
+/* Hover ефекти */
+.menu-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 32px rgba(0, 80, 200, 0.55);
+}
+
+.menu-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .center-box.glass-card {
+        padding: 28px 22px;
+    }
+
+    .center-box h1 {
+        font-size: 24px;
+    }
+}

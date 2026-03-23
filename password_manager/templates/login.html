@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            background: #0a0f1f;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #00eaff;
+        }
+
+        .box {
+            background: rgba(10, 15, 31, 0.7);
+            padding: 25px;
+            width: 320px;
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid #00eaff;
+            box-shadow: 0 0 20px #00eaff;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            background: transparent;
+            border: 2px solid #00eaff;
+            color: #00eaff;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 10px;
+            background: transparent;
+            border: 2px solid #ff005d;
+            color: #ff005d;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff005d;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #ff005d;
+            color: white;
+            box-shadow: 0 0 20px #ff005d;
+        }
+
+        h3 {
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        .error {
+            color: #ff005d;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3>Login</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Benutzername">
+        <input type="password" name="password" placeholder="Passwort">
+        <button type="submit">Login</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form action="/register/">
+        <button style="border-color:#00eaff; color:#00eaff; box-shadow:0 0 10px #00eaff;">Registrieren</button>
+    </form>
+</div>
+
+</body>
+</html>

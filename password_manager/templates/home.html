@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'password_manager/style.css' %}">
+</head>
+<body>
+
+<div class="background-gradient">
+    <div class="center-box glass-card">
+
+        <h1>👋 Hallo {{ user }}</h1>
+        <p class="subtitle">Dein digitaler Tresor ist jetzt entsperrt</p>
+
+        <div class="menu-buttons">
+            <a class="menu-btn" href="/saved/">🔑 Meine Passwörter</a>
+            <a class="menu-btn" href="/save/">➕ Neues Passwort</a>
+            <a class="menu-btn" href="/analyse/">🧪 Passwort analysieren</a>
+            <a class="menu-btn secondary" href="/logout/">🚪 Logout</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

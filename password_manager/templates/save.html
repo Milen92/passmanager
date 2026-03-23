@@ -1,0 +1,44 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<h1>Passwort speichern</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Titel</label><br>
+    <input type="text" name="titel"><br><br>
+
+    <label>Benutzername</label><br>
+    <input type="text" name="user"><br><br>
+
+    <label>Passwort</label><br>
+    <input type="text" name="pw" value="{{ generated }}"><br><br>
+
+    <button type="submit">Speichern</button>
+</form>
+
+<br>
+
+<a href="/generate/">🔐 Passwort generieren</a>
+
+<h1>Gespeicherte Passwörter</h1>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Titel</th>
+        <th>Benutzername</th>
+        <th>Passwort</th>
+        <th>Aktion</th>
+    </tr>
+
+    {% for p in pwlist %}
+    <tr>
+        <td>{{ p.0 }}</td>
+        <td>{{ p.1 }}</td>
+        <td>{{ p.2 }}</td>
+        <td><a href="/delete/{{ forloop.counter0 }}/">Löschen</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/save/">Neues Passwort speichern</a>

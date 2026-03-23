@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            background: #0a0f1f;
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            color: #00eaff;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 6cm;
+            padding: 6px 0;
+            background: transparent;
+            border: 2px solid #ff005d;
+            color: #ff005d;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff005d;
+            transition: 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: #ff005d;
+            color: white;
+            box-shadow: 0 0 20px #ff005d;
+        }
+
+        .box {
+            background: rgba(10, 15, 31, 0.7);
+            padding: 25px;
+            width: 320px;
+            text-align: center;
+            border-radius: 12px;
+            border: 2px solid #00eaff;
+            box-shadow: 0 0 20px #00eaff;
+        }
+
+        button {
+            width: 90%;
+            padding: 12px;
+            margin: 12px 0;
+            background: transparent;
+            border: 2px solid #00eaff;
+            color: #00eaff;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00eaff;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #00eaff;
+            color: #0a0f1f;
+            box-shadow: 0 0 20px #00eaff;
+        }
+
+        h3 {
+            text-shadow: 0 0 10px #00eaff;
+        }
+    </style>
+</head>
+<body>
+
+<form action="/logout/">
+    <button class="logout-btn">Logout</button>
+</form>
+
+<div class="box">
+    <h3>Dashboard</h3>
+
+    <form action="/check/">
+        <button>Passwort prüfen</button>
+    </form>
+
+    <form action="/generate/">
+        <button>Passwort generieren</button>
+    </form>
+
+    <form action="/mypasswords/">
+        <button>Meine Passwörter</button>
+    </form>
+</div>
+
+</body>
+</html>
